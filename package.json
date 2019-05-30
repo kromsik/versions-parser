@@ -1,8 +1,9 @@
 {
   "name": "versions-parser",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A versions parser",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
@@ -15,8 +16,15 @@
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Elias",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com:kromsik/versions-parser.git"
+  },
+  "keywords": [
+    "versions",
+    "parser"
+  ],
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^24.0.13",
