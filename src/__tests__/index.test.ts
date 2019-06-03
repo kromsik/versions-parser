@@ -13,6 +13,24 @@ describe('parseVersion', () => {
     expect(res.text).toBe('1.2.3');
     expect(res.parsed).toEqual([1, 2, 3]);
   });
+  test('it parse an empty string', () => {
+    const res = parseVersion('');
+    expect(res.isEmpty).toBe(true);
+    expect(res.major).toBe(0);
+    expect(res.minor).toBe(0);
+    expect(res.patch).toBe(0);
+    expect(res.text).toBe('0.0.0');
+    expect(res.parsed).toEqual([0, 0, 0]);
+  });
+  test('it parse a non valid string', () => {
+    const res = parseVersion('hello there');
+    expect(res.isEmpty).toBe(true);
+    expect(res.major).toBe(0);
+    expect(res.minor).toBe(0);
+    expect(res.patch).toBe(0);
+    expect(res.text).toBe('0.0.0');
+    expect(res.parsed).toEqual([0, 0, 0]);
+  });
   test('should parse any valid combination', () => {
     const isTested = jsc.checkForall(jsc.nat, jsc.nat, jsc.nat, (major, minor, patch) => {
       const parsed = parseVersion(`${major}.${minor}.${patch}`);
